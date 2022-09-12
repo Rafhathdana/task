@@ -41,13 +41,35 @@ const ChannelName = styled.div`
 const Card = (props) => {
     const [count, setCount] = useState(0);
     const Add = () => {
+        let m= props.keyId
+        var data = JSON.parse(localStorage.getItem(m));
+        let q = data.slice(0,1);
+        q = q - 1 + 1;
+        q= q+1;
+        var n123 = []
+        n123[0]=q;
+        let qe=data.slice(1,2);
+        qe = qe -1 + 1;
+        n123[1]=qe;
+        localStorage.setItem(m,JSON.stringify(n123));
         setCount(count + 1);
     }
     const Remove = () => {
+        let m= props.keyId
+        var data = JSON.parse(localStorage.getItem(m));
+        let q = data.slice(0,1);
+        q= q-1;
+        var n123 = []
+        n123[0]=q;
+        let qe=data.slice(1,2);
+        qe = qe -1 + 1;
+        n123[1]=qe;
+        localStorage.setItem(m,JSON.stringify(n123));
         setCount(count - 1);
     }
     return (
         <Container>
+            {props.keyId}
             <Image src={props.img} />
             <Title>{props.name}</Title>  
             <Title>Rs :  {props.rate}</Title>

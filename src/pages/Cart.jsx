@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect , useState } from 'react'
 import styled from 'styled-components'
 import CartBox from '../components/CartBox'
 
@@ -9,7 +9,6 @@ import { RateBox } from '../components/RateBox'
 const Container = styled.div`
 `
 const Box = styled.div`
-    width:750px;
     margin:auto;
     border:1px solid #0f0f0f;
 `
@@ -23,10 +22,18 @@ const Main= styled.div`
 display: flex;
 `
 const Cart = () => {
+    // const [data,newData] = useState(null);
+    // useEffect(() => {
+    //     fetch(`http://testinginterview.rf.gd/task5.php`)
+    //     .then((response) => response.text())
+    //     .then((response) => newData(response));
+    // },[]);
+    let m= localStorage.getItem('n123');
+    console.log(m)
     return (
         <Container>
             <Heading>Cart</Heading>
-            <Main>
+            <Heading></Heading><Main>
 
                 <Box>
                     <CartBox name="ziper Tshirt" img={pic3} rate="1550" quantity="1" />
@@ -41,4 +48,4 @@ const Cart = () => {
     )
 }
 
-export default Cart
+export default Cart;
